@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+body {
+    font-family: cursive;
+    font-style: italic;
+    background-color: #CAF0F8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image:linear-gradient(to left , rgba(27, 21, 21, 0), rgb(28, 25, 25)) ,url("https://nitrr.ac.in/images/202201(1).jpg") ;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.container {
+    background-color: #233335;
+    border: 1px solid #dbdbdb;
+    border-radius: 25px;
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    width: 350px;
+    text-align: center;
+}
+
+.signup-form h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #a1acb6;
+}
+
+.signup-form input{
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #dbdbdb;
+        border-radius: 5px;
+}
+
+.signup-form button{
+    width: 100%;
+    padding: 10px;
+    background-color: #0095f6;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.signup-form button:hover {
+    background-color: #007bb5;
+}
+
+.divider {
+    margin: 15px 0;
+    color: #999;
+}
+
+.login-link {
+    color: #0095f6;
+    text-decoration: none;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+<form class="signup-form" action="/sign" method="post">
+    {% csrf_token %}
+    <h1>Sign Up!</h1>
+    <input type="text" placeholder="Full Name" required>
+    <input type="text"  name = "name"  placeholder="UserName" required>
+    <input type="email" placeholder="Email" required>
+    <input type="password"  name="password" placeholder="Password" required>
+    <button type="submit">Sign Up</button>
+    <p class="divider">OR</p>
+            <a href="/" class="login-link">Already have an account? Log in</a>
+    
+</form>
+
+    </div>
+</body>
+</html>
