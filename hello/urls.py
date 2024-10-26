@@ -11,7 +11,8 @@ urlpatterns = [
     path('template',views.temple ,name = 'template'),
     path('acad',views.academy,name='acad' ),
     path('sports',views.sports,name='sports' ),
-    path('query',views.query,name='query' )
+    path('query',views.query,name='query' ),
+    path('event',views.event,name='event' )
     
 
 ]

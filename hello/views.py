@@ -11,7 +11,7 @@ MESSAGE_TAGS = {
 
 # Create your views here.
 def index(request):
-    return HttpResponse('this is the index page')
+    return render(request, 'index123.html')
 
 def logged(request):
     global MESSAGE_TAGS
@@ -50,10 +50,13 @@ def clubs(request):
     return render(request,'clubs12.html')
 
 def sports(request):
-    return HttpResponse('this is the sports page')
+    return render(request, 'sports1.html')
 
 def query(request):
     return render(request, 'query1.html')
+
+def event(request):
+    return render(request,'event.html')
 
 
 
