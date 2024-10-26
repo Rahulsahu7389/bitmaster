@@ -2,7 +2,7 @@ from django.shortcuts import render,HttpResponse,redirect
 from hello.models import LoggedIn
 
 MESSAGE_TAGS = {
-    'name':'ramam'
+    'lname':'ramam'
 }
 
 
@@ -20,7 +20,7 @@ def logged(request):
        password2 = request.POST.get('password')
        for i in LoggedIn.objects.all():
            if name2 == i.name and password2 == i.password:
-               MESSAGE_TAGS['name'] = name2
+               MESSAGE_TAGS['lname'] = name2
             #    user = form.save()
                return redirect('/home')
     return render(request,'login1.html')
