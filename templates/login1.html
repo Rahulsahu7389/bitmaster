@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        *{
+            margin: 0%;
+            padding: 0%;
+        }
+        body {
+            font-family: cursive;
+            font-style: italic;
+            background-color: #CAF0F8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-image:linear-gradient(to right , rgba(159, 157, 157, 0), rgb(28, 25, 25)) ,url("https://nitrr.ac.in/images/202201(1).jpg") ;
+            background-repeat: no-repeat;
+            background-size: cover;
+           
+        }
+        
+        .container {
+            background-color: #233335;
+            border: 1px solid #dbdbdb;
+            border-radius: 15px;
+            box-shadow: 15px 15px 15px rgba(5, 5, 5, 0.1);
+            padding: 40px;
+            width: 350px;
+            text-align: center;
+        }
+        
+        .login-form h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #a1acb6;
+            
+        }
+        
+        .login-form input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #dbdbdb;
+            border-radius: 5px;
+        }
+        
+        .login-form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #0095f6;
+            color: white;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        .login-form button:hover {
+            background-color: #007bb5;
+        }
+        
+        .divider {
+            margin: 15px 0;
+            color: #999;
+        }
+        
+        .forgot-password {
+            color: #0095f6;
+            text-decoration: none;
+        }
+        
+        .sign-up {
+            margin-top: 20px;
+            color: #999;
+        
+        }
+        
+        .sign-up a {
+            color: #0095f6;
+            text-decoration: none;
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- <div class="container">
+        <form action="/" method="post">
+            <input type="text" name="name" id="name" placeholder="Name">
+            <br>
+            <input type="password" name="password" id="password" placeholder="password">
+            <br>
+            <button type="submit">Sign In</button>
+        </form> 
+    </div> -->
+</body>
+</html> 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Login</title>
+</head>
+<body>
+    
+    <div class="container">
+        <form class="login-form" action="/" method="POST">
+            {% csrf_token %}
+            
+            <h1>LOGIN</h1>
+            <input type="text" name="name" id="name" placeholder="Username" required>
+            <input type="password" name="password" id="password" placeholder="password" required>
+            <button type="submit">Log In</button>
+            <p class="divider">OR</p>
+            <a href="forgotpassword.html" class="forgot-password">Forgot password?</a>
+        </form>
+        <p class="sign-up">Don't have an account? <a href="/signup.html">Sign up</a></p>
+    </div>    
+</body>
+</html>
