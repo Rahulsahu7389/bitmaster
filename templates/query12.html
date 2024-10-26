@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,30 +14,30 @@
             padding: 0;
             background-color: #f9f9f9;
         }
-        
+
         header {
             text-align: center;
             background-color: #007bff;
             color: white;
             padding: 1.5rem 0;
         }
-        
+
         header h1 {
             font-size: 2.5rem;
             margin: 0;
         }
-        
+
         header p {
             font-size: 1.2rem;
             margin: 0.5rem 0;
         }
-        
+
         main {
             padding: 2rem;
             max-width: 1200px;
             margin: auto;
         }
-        
+
         /* Form Section */
         #query-form {
             background-color: white;
@@ -45,20 +46,22 @@
             padding: 2rem;
             margin-bottom: 2rem;
         }
-        
+
         #query-form h2 {
             font-size: 1.8rem;
             color: #007bff;
             margin-bottom: 1rem;
         }
-        
+
         label {
             display: block;
             font-weight: 600;
             margin: 1rem 0 0.5rem;
         }
-        
-        select, textarea, button {
+
+        select,
+        textarea,
+        button {
             width: 100%;
             padding: 0.75rem;
             border: 1px solid #ccc;
@@ -66,17 +69,19 @@
             font-size: 1rem;
             margin-bottom: 1.5rem;
         }
-        
-        select:focus, textarea:focus, button:focus {
+
+        select:focus,
+        textarea:focus,
+        button:focus {
             border-color: #007bff;
             outline: none;
         }
-        
+
         textarea {
             height: 120px;
             resize: none;
         }
-        
+
         button {
             background-color: #007bff;
             color: white;
@@ -85,11 +90,11 @@
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
-        
+
         button:hover {
             background-color: #0056b3;
         }
-        
+
         /* Success Message */
         #success-message {
             display: none;
@@ -100,7 +105,7 @@
             margin-bottom: 1.5rem;
             text-align: center;
         }
-        
+
         /* Answers Section */
         #answers {
             background-color: white;
@@ -108,31 +113,31 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             padding: 2rem;
         }
-        
+
         #answers h2 {
             font-size: 1.8rem;
             color: #007bff;
             margin-bottom: 1rem;
         }
-        
+
         .answer-box {
             background-color: #f1f1f1;
             padding: 1rem;
             border-radius: 6px;
             margin-bottom: 1rem;
         }
-        
+
         .answer-box h3 {
             font-size: 1.2rem;
             font-weight: 600;
             color: #333;
         }
-        
+
         .answer-box p {
             font-size: 1rem;
             color: #555;
         }
-        
+
         .answer-box button {
             background-color: #17a2b8;
             color: white;
@@ -142,11 +147,11 @@
             cursor: pointer;
             margin-top: 0.5rem;
         }
-        
+
         .answer-box button:hover {
             background-color: #138496;
         }
-        
+
         footer {
             text-align: center;
             padding: 1rem;
@@ -154,54 +159,60 @@
             font-size: 0.9rem;
             color: #555;
         }
+        .detail{
+            border: 2px solid red;
+            display: inline-block;
+            font-size: 0.8rem;
+        }
+        
     </style>
 </head>
+
 <body>
     <header>
         <h1>Ask Your Doubts</h1>
         <p>Select the type of query, choose the subquery, and ask your doubt!</p>
     </header>
+    {{id5}}
 
     <main>
         <section id="query-form">
             <h2>Submit Your Query</h2>
             <div id="success-message">Your query has been submitted successfully!</div>
-            
-            <form id="querySubmissionForm" action="your-backend-endpoint" method="POST">
-                <label for="query-type">Select Type of Query:</label>
-                <select id="query-type" name="queryType">
-                    <option disabled selected>-- Select Type --</option>
-                    <option value="Algorithms">Algorithms</option>
-                    <option value="Web Development">Web Development</option>
-                    <option value="App Development">App Development</option>
-                    <option value="Data Science">Data Science</option>
-                    <option value="Competitive Programming">Competitive Programming</option>
-                    <option value="Cloud Computing & DevOps">Cloud Computing & DevOps</option>
-                    <option value="Cybersecurity">Cybersecurity</option>
-                    <option value="Electronics & Embedded Systems">Electronics & Embedded Systems</option>
-                    <option value="Robotics & Automation">Robotics & Automation</option>
-                    <option value="Blockchain & Cryptocurrency">Blockchain & Cryptocurrency</option>
-                    <option value="Internships & Placements">Internships & Placements</option>
-                    <option value="NIT Raipur Specific Doubts">NIT Raipur Specific Doubts</option>
-                    <option value="General Programming">General Programming</option>
-                    <option value="Technical Tools">Technical Tools</option>
-                    <option value="Relationship & Love Issues">Relationship & Love Issues</option>
-                    <option value="Exam & Study-Related Issues">Exam & Study-Related Issues</option>
-                    <option value="Scholarships & Financial Aid">Scholarships & Financial Aid</option>
-                    <option value="Mental Health & Stress Management">Mental Health & Stress Management</option>
-                    <option value="Team Projects & Group Work">Team Projects & Group Work</option>
-                </select>
-                
-                <label for="subquery-type">Select Subquery:</label>
-                <select id="subquery-type" name="subqueryType">
-                    <option disabled selected>-- Select Subquery --</option>
-                </select>
-                
-                <textarea id="user-query" name="userQuery" placeholder="Describe your doubt here..."></textarea>
-                <button id="submit-query" type="submit">Submit</button>
-            </form>
-        </section>
 
+            <label for="query-type">Select Type of Query:</label>
+            <select id="query-type">
+                <option disabled selected>-- Select Type --</option>
+                <option value="Algorithms">Algorithms</option>
+                <option value="Web Development">Web Development</option>
+                <option value="App Development">App Development</option>
+                <option value="Data Science">Data Science</option>
+                <option value="Competitive Programming">Competitive Programming</option>
+                <option value="Cloud Computing & DevOps">Cloud Computing & DevOps</option>
+                <option value="Cybersecurity">Cybersecurity</option>
+                <option value="Electronics & Embedded Systems">Electronics & Embedded Systems</option>
+                <option value="Robotics & Automation">Robotics & Automation</option>
+                <option value="Blockchain & Cryptocurrency">Blockchain & Cryptocurrency</option>
+                <option value="Internships & Placements">Internships & Placements</option>
+                <option value="NIT Raipur Specific Doubts">NIT Raipur Specific Doubts</option>
+                <option value="General Programming">General Programming</option>
+                <option value="Technical Tools">Technical Tools</option>
+                <option value="Relationship & Love Issues">Relationship & Love Issues</option>
+                <option value="Exam & Study-Related Issues">Exam & Study-Related Issues</option>
+                <option value="Scholarships & Financial Aid">Scholarships & Financial Aid</option>
+                <option value="Mental Health & Stress Management">Mental Health & Stress Management</option>
+                <option value="Team Projects & Group Work">Team Projects & Group Work</option>
+            </select>
+
+            <label for="subquery-type">Select Subquery:</label>
+            <select id="subquery-type">
+                <option disabled selected>-- Select Subquery --</option>
+            </select>
+
+            <textarea id="user-query" placeholder="Describe your doubt here..."></textarea>
+            <button id="submit-query">Submit</button>
+        </section>
+        {% comment %} {{branch}} {% endcomment %}
         <section id="answers">
             <h2>Query Answers</h2>
             <div id="answer-list">
@@ -214,7 +225,10 @@
         <p>&copy; 2024 Ask Your Doubts | NITRR</p>
     </footer>
 
+    
+
     <script>
+        // Options for subqueries based on the selected query type
         const subqueryOptions = {
             "Algorithms": ["Neural Networks", "NLP", "AI/ML Frameworks"],
             "Web Development": ["Frontend", "Backend", "Databases", "Full-Stack Development"],
@@ -236,11 +250,14 @@
             "Mental Health & Stress Management": ["Coping with Pressure", "Managing Stress", "Seeking Support"],
             "Team Projects & Group Work": ["Collaborating Effectively", "Handling Conflicts", "Time Management"]
         };
-        
-        document.getElementById('query-type').addEventListener('change', function() {
+
+        // Dynamically populate the subquery options based on the selected main query type
+        document.getElementById('query-type').addEventListener('change', function () {
             const selectedQuery = this.value;
             const subquerySelect = document.getElementById('subquery-type');
+
             subquerySelect.innerHTML = '<option disabled selected>-- Select Subquery --</option>';
+
             subqueryOptions[selectedQuery].forEach(subquery => {
                 const option = document.createElement('option');
                 option.value = subquery;
@@ -248,6 +265,57 @@
                 subquerySelect.appendChild(option);
             });
         });
+
+        // Handle form submission when the submit button is clicked
+        document.getElementById('submit-query').addEventListener('click', function () {
+            const queryType = document.getElementById('query-type').value;
+            const subqueryType = document.getElementById('subquery-type').value;
+            const userQuery = document.getElementById('user-query').value;
+            
+
+            // Check if all required fields are filled
+            if (!queryType || !subqueryType || userQuery.trim() === '') {
+                alert('Please complete all fields before submitting.');
+                return;  // Prevent further execution if validation fails
+            }
+            {% comment %} var b = {{branch}} {% endcomment %}
+            var y = {{year}}
+            {% comment %} var b = {{branch}} {% endcomment %}
+
+            // Display success message
+            document.getElementById('success-message').style.display = 'block';
+
+            // Create a new element to display the query and answer
+            const answerDiv = document.createElement('div');
+            answerDiv.classList.add('answer');
+
+            var ans = 'this is the answer';
+            if ({{id5}} == 'one'){
+
+                answerDiv.innerHTML = 
+                `<div class="detail">${y} Year| CSE</div><h3>Query: ${queryType} - ${subqueryType}</h3><p>${userQuery}</p><button class="answer-btn">View Answer</button><div class="answer-content" style="display: none;"><p>${ans}</p></div>`
+            }
+            else{
+                answerDiv.innerHTML = 
+                `<div class="detail">${y} Year| CSE</div><h3>Query: ${queryType} - ${subqueryType}</h3><p>${userQuery}</p><button class="answer-btn">View Answer</button><div class="answer-content" style="display: none;"><p>Your answer will appear here soon...</p></div>`
+
+            }
+
+            // Append the query and placeholder answer to the answer list
+            document.getElementById('answer-list').appendChild(answerDiv);
+
+            // Add click event to the "View Answer" button to toggle the answer content
+            answerDiv.querySelector('.answer-btn').addEventListener('click', function () {
+                const answerContent = answerDiv.querySelector('.answer-content');
+                answerContent.style.display = answerContent.style.display === 'none' ? 'block' : 'none';
+            });
+
+            // Clear the form fields after submission
+            document.getElementById('query-type').value = '';
+            document.getElementById('subquery-type').innerHTML = '<option disabled selected>-- Select Subquery --</option>';
+            document.getElementById('user-query').value = '';
+        });
     </script>
 </body>
+
 </html>

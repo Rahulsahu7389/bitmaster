@@ -1,0 +1,164 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORM</title>
+    <style>
+
+        body{
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full viewport height */
+            margin: 0;
+            background-color: #5ae8ea; 
+        }
+        .box {
+            border: 2px solid red;
+            height: 70vw;
+            width: 60vw;
+            padding: 10px 20px;
+            margin: 0 auto;
+        }
+
+        .prob {
+            border: 2px solid red;
+            float: right;
+            overflow: auto;
+            min-width: 20%;
+            margin: 10px 0px;
+            clear: both;
+
+        }
+
+        .person {
+            border: 2px solid green;
+
+        }
+
+        h3 {
+            /* border: 2px solid yellow; */
+            text-align: center;
+        }
+
+        body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    margin: 0;
+    background-color: #f4f4f4; /* Light background color */
+}
+
+.form-container {
+    background-color: #ffffff; /* White background for the form */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    padding: 30px; /* Inner padding */
+    width: 300px; /* Fixed width */
+}
+
+.styled-form h2 {
+    text-align: center; /* Center the heading */
+    color: #3498db; /* Heading color */
+}
+
+.styled-form label {
+    display: block; /* Block display for labels */
+    margin: 10px 0 5px; /* Margin around labels */
+    color: #333; /* Label color */
+}
+
+.styled-form input,
+.styled-form textarea {
+    width: 100%; /* Full width */
+    padding: 10px; /* Inner padding */
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 5px; /* Rounded corners */
+    margin-bottom: 15px; /* Space between fields */
+    transition: border-color 0.3s; /* Transition effect */
+}
+
+.styled-form input:focus,
+.styled-form textarea:focus {
+    border-color: #3498db; /* Change border color on focus */
+    outline: none; /* Remove default outline */
+}
+
+.styled-form button {
+    width: 100%; /* Full width button */
+    padding: 10px; /* Inner padding */
+    background-color: #3498db; /* Button color */
+    color: #fff; /* Text color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor */
+    transition: background-color 0.3s; /* Transition effect */
+}
+
+.styled-form button:hover {
+    background-color: #2980b9; /* Darker color on hover */
+}
+
+
+        
+    </style>
+</head>
+
+<body>
+   
+    <!-- <form action="/template" class="myform" method="POST">
+        <h2>ENTER YOUR DETAILS</h2> -->
+
+        <!-- <input type="text" name = 'name' placeholder="Name"> -->
+        <!-- {% comment %} <input type="radio" name="temp" id="radio" value="relation issue">
+        <label for="radio">relation issue</label><br>
+        <input type="radio" name="temp2" id="radio2" value="class issue">
+        <label for="radio2">class issue</label><br>
+        <input type="radio" name="temp3" id="radio3" value="study issue">
+        <label for="radio3">study issue</label><br>
+        <input type="radio" name="temp4" id="radio4" value="how to handle club and study together">
+        <label for="radio4">how to handle club and study together</label>
+        <br> {% endcomment %} -->
+
+        <!-- <label for="year">Year:</label>
+        <input type="number" id="year" name="name" required>
+
+        <label for="branch">Branch:</label>
+        <input type="text" id="branch" name="branch" required>
+
+        <button type="submit">Submit</button>
+    </form> -->
+
+    <div class="form-container">
+        <form  action="/template"  class="styled-form" method="post">
+            {% csrf_token %}
+            <h2>Fill Your Details!!</h2>
+
+            <label for="year">Year:</label>
+            <input type="number" id="year" name="name" required>
+
+            <label for="branch">branch</label>
+            <input type="text" id="branch" name="branch" required>
+
+    
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    
+
+
+
+</body>
+
+
+
+
+
+
+
+</html>

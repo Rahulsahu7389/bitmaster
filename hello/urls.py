@@ -12,7 +12,8 @@ urlpatterns = [
     path('acad',views.academy,name='acad' ),
     path('sports',views.sports,name='sports' ),
     path('query',views.query,name='query' ),
-    path('event',views.event,name='event' )
+    path('event',views.event,name='event' ),
+    path('form',views.formed,name='form' )
     
 
 ]

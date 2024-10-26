@@ -58,6 +58,9 @@ def query(request):
 def event(request):
     return render(request,'event.html')
 
+def formed(request):
+    return render(request,'form.html')
+
 
 
 
