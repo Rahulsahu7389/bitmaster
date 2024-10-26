@@ -52,5 +52,9 @@ def clubs(request):
 def sports(request):
     return HttpResponse('this is the sports page')
 
+def query(request):
+    return render(request, 'query1.html')
+
+
 
 

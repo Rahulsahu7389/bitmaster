@@ -10,7 +10,8 @@ urlpatterns = [
     path('sign', views.signed ,name = 'sign' ),
     path('template',views.temple ,name = 'template'),
     path('acad',views.academy,name='acad' ),
-    path('sports',views.sports,name='sports' )
+    path('sports',views.sports,name='sports' ),
+    path('query',views.query,name='query' )
     
 
 ]
