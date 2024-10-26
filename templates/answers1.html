@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Answer Questions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            text-align: center;
+            background-color: #007bff;
+            color: white;
+            padding: 1.5rem 0;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            margin: 0.5rem 0;
+        }
+
+        main {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* Interest Filter Section */
+        #interest-filter {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        #interest-filter h2 {
+            font-size: 1.8rem;
+            color: #007bff;
+            margin-bottom: 1rem;
+        }
+
+        #interest-select {
+            width: 100%;
+            height: 150px;
+            padding: 0.75rem;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            font-weight: 600;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Question List Section */
+        #question-list {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+        }
+
+        .question-box {
+            background-color: #f1f1f1;
+            padding: 1rem;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+        }
+
+        .question-box h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .question-box p {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .question-box .textarea {
+            width: 100%;
+            padding: 0.5rem;
+            margin-top: 0.5rem;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            resize: none;
+        }
+
+        .question-box .answer-submit {
+            background-color: #17a2b8;
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 0.5rem;
+        }
+
+        .question-box .answer-submit:hover {
+            background-color: #138496;
+        }
+        form input{
+            font-size: 1.5rem;
+        }
+        #questions div{
+            border: 2px solid red;
+            margin: 10px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Answer Student Questions</h1>
+        <p>Select your interests to filter questions and provide answers to help students.</p>
+    </header>
+
+    <main>
+        <section id="interest-filter">
+            <h2>Select Your Interests</h2>
+            <select id="interest-select" multiple>
+                <option value="Algorithms">Algorithms</option>
+                <option value="Web Development">Web Development</option>
+                <option value="App Development">app development</option>
+                <option value="Data Science">Data Science</option>
+                <option value="Competitive Programming">Competitive Programming</option>
+                <option value="Cloud Computing & DevOps">Cloud Computing & DevOps</option>
+                <option value="Cybersecurity">Cybersecurity</option>
+                <option value="Electronics & Embedded Systems">Electronics & Embedded Systems</option>
+                <option value="Robotics & Automation">Robotics & Automation</option>
+                <option value="Blockchain & Cryptocurrency">Blockchain & Cryptocurrency</option>
+                <option value="Internships & Placements">Internships & Placements</option>
+                <option value="NIT Raipur Specific Doubts">NIT Raipur Specific Doubts</option>
+                <option value="General Programming">General Programming</option>
+                <option value="Technical Tools">Technical Tools</option>
+                <option value="Relationship & Love Issues">Relationship & Love Issues</option>
+                <option value="Exam & Study-Related Issues">Exam & Study-Related Issues</option>
+                <option value="Scholarships & Financial Aid">Scholarships & Financial Aid</option>
+                <option value="Mental Health & Stress Management">Mental Health & Stress Management</option>
+                <option value="Team Projects & Group Work">Team Projects & Group Work</option>
+            </select>
+            <button id="apply-filter">Apply Filter</button>
+        </section>
+        <div id="questions">
+
+        </div>
+
+        <section id="question-list">
+            <h2>Questions to Answer</h2>
+            <div id="filtered-questions">
+                <!-- Filtered questions based on selected interests will appear here -->
+            </div>
+        </section>
+    </main>
+    
+
+
+    <footer>
+        <p>&copy; 2024 Ask Your Doubts | NITRR</p>
+    </footer>
+
+    <script>
+        var ans1 = JSON.parse("{{data|escapejs}}");
+        console.log(ans1);
+        // Sample questions data (from previous page or database)
+
+        const questions = [
+            { topic: "Algorithms", subquery: "Neural Networks", question: "What is the difference between ANN and CNN?" },
+            { topic: "Web Development", subquery: "Frontend", question: "How does flexbox layout work?" },
+            { topic: "Data Science", subquery: "Data Analysis", question: "What is the difference between regression and classification?" }
+            // More questions can be added here
+        ];
+
+        // Function to filter questions based on selected interests
+        function filterQuestions() {
+            const interestSelect = document.getElementById("interest-select");
+            const selectedInterests = Array.from(interestSelect.selectedOptions).map(opt => opt.value);
+            const filteredQuestionsDiv = document.getElementById("filtered-questions");
+
+            filteredQuestionsDiv.innerHTML = ""; // Clear previous results
+
+            for (var i  in ans1) {
+                console.log(i);
+            
+                
+                // const element = ans1[i ];
+                // console.log(`this is ${i}`);
+                // console.log(`this is ${i[0]}`);
+                
+                // console.log(i[3],i[4],i[5],selectedInterests[0])
+                // if (i[0] == selectedInterests[0]){
+
+                //     var cons = document.getElementById("questions");
+                //     var cons1 = document.createElement("div")
+                //     cons1.innerHTML += `<div class="detail">${i[3]} Year|${i[4]}</div><h3>Query: ${i[0]}</h3><p>q3</p><button class="answer-btn">View Answer</button><div class="answer-content" style="display: none;">`
+        
+                //     cons.appendChild(cons1)
+                // }
+
+
+                    
+                
+            }
+
+
+            // Display questions that match selected interests
+            questions
+                .filter(q => selectedInterests.includes(q.topic))
+                .forEach(q => {
+                    const questionBox = document.createElement("div");
+                    questionBox.classList.add("question-box");
+                    questionBox.innerHTML = `
+            <h3>${q.topic} - ${q.subquery}</h3>
+            <p>${q.question}</p>
+            <form action="/answer" method="POST">
+        {% csrf_token %}
+        <input type="text" name="text" class=".textarea" placeholder="Give Your Answer"><br>
+        <button class="answer-submit" type="submit">Submit</button>
+    </form>
+        `;
+
+                    // Submit answer event
+                    questionBox.querySelector(".answer-submit").addEventListener("click", function () {
+                        const answer = questionBox.querySelector("textarea").value;
+                        if (answer.trim() === "") {
+                            alert("Please enter an answer before submitting.");
+                            return;
+                        }
+                        alert("Answer submitted successfully!");
+                        questionBox.querySelector("textarea").value = ""; // Clear answer field after submission
+                    });
+
+                    filteredQuestionsDiv.appendChild(questionBox);
+                });
+        }
+
+        // Apply filter button event
+        document.getElementById("apply-filter").addEventListener("click", filterQuestions);
+    </script>
+</body>
+
+</html>

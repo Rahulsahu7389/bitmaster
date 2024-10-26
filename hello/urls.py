@@ -8,12 +8,13 @@ urlpatterns = [
     path('clubs',views.clubs,name='clubs' ),
     path('logout',views.loggedOut,name='logout'),
     path('sign', views.signed ,name = 'sign' ),
-    path('template',views.temple ,name = 'template'),
+    # path('template',views.temple ,name = 'template'),
     path('acad',views.academy,name='acad' ),
     path('sports',views.sports,name='sports' ),
     path('query',views.query,name='query' ),
     path('event',views.event,name='event' ),
-    path('form',views.formed,name='form' )
+    path('form',views.formed,name='form' ),
+    path('answer',views.answered,name='answer' )
     
 
 ]
