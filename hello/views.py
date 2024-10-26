@@ -26,7 +26,7 @@ def logged(request):
     return render(request,'login1.html')
 
 def academy(request):
-    return HttpResponse('this is the academy page')
+    return render(request,'academic.html')
 
 def loggedOut(request):
     return HttpResponse('this is the loggedOut page')
@@ -47,7 +47,7 @@ def temple(request):
     return HttpResponse('this is the templates page')
 
 def clubs(request):
-    return HttpResponse('this is the clubs page')
+    return render(request,'clubs12.html')
 
 def sports(request):
     return HttpResponse('this is the sports page')

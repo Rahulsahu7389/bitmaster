@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clubs and Community</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #72EDF2 10%, #5151E5 100%);
+            color: #333;
+        }
+        header {
+            background-color: #1F3A93;
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+            font-size: 1.5em;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        h1, h2 {
+            font-weight: 600;
+            margin: 0;
+        }
+        p {
+            margin: 10px 0;
+        }
+        #club-form, #clubs {
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 1200px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        #club-form h2 {
+            margin-bottom: 15px;
+        }
+        input, textarea {
+            width: calc(100% - 20px);
+            padding: 15px;
+            margin: 10px 0;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        button {
+            padding: 15px 30px;
+            background-color: #1F3A93;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            background-color: #1E8BC3;
+            transform: scale(1.05);
+        }
+        #clubs h2 {
+            margin-bottom: 20px;
+        }
+        .club-card {
+            display: inline-block;
+            width: 30%;
+            margin: 15px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .club-card:hover {
+            transform: translateY(-10px);
+        }
+        .club-card a {
+            text-decoration: none;
+            color: #1F3A93;
+            font-weight: 600;
+            font-size: 1.2em;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #1F3A93;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        #new-club-message {
+            color: green;
+            text-align: center;
+            margin-bottom: 10px;
+            display: none;
+        }
+        /* Mobile styles */
+        @media (max-width: 768px) {
+            .club-card {
+                width: 100%;
+                margin: 10px 0;
+            }
+            button {
+                width: 100%;
+            }
+        }
+        header a {
+            text-decoration: none;
+            color: white;
+            /* background-color: beige; */
+        }
+        header a:hover{
+            color: #72EDF2;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Clubs and Community</h1>
+        <p>Join and interact with official and unofficial clubs of our college!</p>
+        <a href="/home">Home</a>
+    </header>
+    
+    <main>
+        <section id="club-form">
+            <h2>Create a New Club</h2>
+            <div id="new-club-message">Your new club has been added successfully!</div>
+            <input type="text" id="club-name" placeholder="Club Name" required>
+            <textarea id="club-description" placeholder="Club Description" required></textarea>
+            <button id="submit-club">Add Club</button>
+        </section>
+
+        <section id="clubs">
+            <h2>OFFICIAL CLUBS/ COMMUNITY OF NITRR:</h2>
+            <div class="club-card">
+                <a href="https://technocracy.nitrr.ac.in/aavartan" target="_blank">TECHNOCRACY</a>
+                <p>Join the tech geeks and work on exciting projects.</p>
+            </div>
+            <div class="club-card">
+                <a href="shaurya" target="_blank">SHAURYA</a>
+                <p>Unleash your inner athlete and represent the college.</p>
+            </div>
+            <div class="club-card">
+                <a href="xyz" target="_blank">SANSKRITI</a>
+                <p>Immerse yourself in cultural activities and events.</p>
+            </div>
+            <div class="club-card">
+                <a href="https://codeutsava.nitrr.ac.in/" target="_blank">Turing Club of Programming</a>
+                <p>Coding enthusiasts unite for coding competitions and learning.</p>
+            </div>
+            <div class="club-card">
+                <a href="nrityaml" target="_blank">NRITYAM</a>
+                <p>Feel the rhythm and show off your dance moves!</p>
+            </div>
+            <div class="club-card">
+                <a href="literati" target="_blank">LITERATI</a>
+                <p>Engage with literature, writing, and discussions.</p>
+            </div>
+            <div class="club-card">
+                <a href="ncc nss" target="_blank">NCC/NSS</a>
+                <p>Serve the nation while developing discipline and leadership.</p>
+            </div>
+        </section>
+        
+        <section id="available-clubs">
+            <h2>Available Clubs</h2>
+            <div id="new-club-list"></div>
+        </section>
+        
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Clubs and Community | NITRR</p>
+    </footer>
+
+    <script>
+        document.getElementById('submit-club').addEventListener('click', function() {
+            // Get values from input fields
+            const clubName = document.getElementById('club-name').value;
+            const clubDescription = document.getElementById('club-description').value;
+
+            // Validation: check if inputs are not empty
+            if (clubName.trim() === '' || clubDescription.trim() === '') {
+                alert('Please fill out both fields!');
+                return;
+            }
+
+            // Create new club card
+            const newClub = document.createElement('div');
+            newClub.classList.add('club-card');
+            
+            const clubLink = document.createElement('a');
+            clubLink.textContent = clubName;
+            clubLink.href = "#"; // Default link, can be modified later
+            clubLink.target = "_blank";
+            
+            const clubDesc = document.createElement('p');
+            clubDesc.textContent = clubDescription;
+
+            newClub.appendChild(clubLink);
+            newClub.appendChild(clubDesc);
+
+            // Add new club to the available clubs section
+            document.getElementById('new-club-list').appendChild(newClub);
+
+            // Clear input fields
+            document.getElementById('club-name').value = '';
+            document.getElementById('club-description').value = '';
+
+            // Show success message
+            const message = document.getElementById('new-club-message');
+            message.style.display = 'block';
+            setTimeout(() => {
+                message.style.display = 'none';
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
