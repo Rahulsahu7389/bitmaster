@@ -8,7 +8,7 @@ def index(request):
     # "Subject here",
     # "Here is the message.",
     # "masterbit165@gmail.com",
-    # ["jaysahu0201@gmail.com"],
+    # ["example@gmail.com"],
     # fail_silently=False,)
     return render(request,'index123.html')
 
@@ -21,7 +21,7 @@ def button(request):
     "Subject here",
     "team : shourya\ntime:12:15pm\ndate:10/27/24\nlocation:amul parlour",
     "masterbit165@gmail.com",
-    ["jaysahu0201@gmail.com"],
+    ["example@gmail.com"],
     fail_silently=False)
     print('got it')
     return redirect('/sports')
