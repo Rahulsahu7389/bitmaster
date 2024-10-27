@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Home</title>
     <style>
         * {
     margin: 0;
@@ -24,10 +24,24 @@ body {
     animation: fadeIn 1s ease-in-out forwards;
 }
 
+.anim{ display: inline-block;
+ justify-items: center;}
 .fade2 {
-    opacity: 0;
-    animation: fadeInUp 1.5s ease-in-out forwards;
+    /* opacity: 0;
+    animation: fadeInUp 1.5s ease-in-out forwards; */
+    
+    
+    font-family: monospace;
+    border-right: 5px solid;
+    width: 525px;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typing 1.8s steps(19);
+    cursor .4s steps-end infinite alternate;
+    margin: 0px auto; 
 }
+@keyframes cursor{50%{border-color: transparent;}}
+@keyframes typing{from{width: 0;}}
 
 @keyframes fadeIn {
     from { opacity: 0; }
@@ -211,7 +225,8 @@ nav{position: relative;}
 </head>
 <body class="fade">
     <header>
-<h1 class="fade2"> Welcome to CommuNIT-i !</h1>
+        <div class="anim"></div>
+<h1 class="fade2"> Welcome to CommuNIT-i</h1>
 <nav>
     <ul>
         <li><a href="/home">Home</a></li>
@@ -245,7 +260,7 @@ nav{position: relative;}
 <secion id="home">
     <h2> Latest Community News</h2>
     <article>
-        <h3>Upcoming Events</h3>
+        <h3>Upcomming Events</h3>
         <p>Join us for our next community event on ------</p>
     </article>
 
@@ -261,6 +276,7 @@ nav{position: relative;}
 <ul id="a">
     <li><a href="event.html" target="_blank">Events & Meetups</a></li>
     <li><a href="clubs.html" target="_blank">Groups</a></li>
+    <li><a href="sports.html" target="_blank">Sports</a></li>
     <li><a href="sports.html" target="_blank">Sports</a></li>
     <li><a href="acad.html" target="_blank">Academics</a></li>
 </ul>

@@ -130,14 +130,23 @@
         form input {
             font-size: 1.5rem;
         }
+        .detail{
+            /* box-shadow: 0 0 10px rgba(0,0,0,0.7); */
+            display: inline-block;
+            /* width: ; */
+        }
 
         #questions div {
-            border: 2px solid red;
+            /* border: 2px solid rgb(84, 142, 85); */
             margin: 10px auto;
+            width: 75%;
+            box-shadow: 0 0 10px rgba(0,0,0,0.7);
+            border-radius: 6px;
         }
         #text1{
             visibility: hidden;
         }
+        
     </style>
 </head>
 
@@ -235,8 +244,9 @@
                 if (selectedInterests[0].toLowerCase() == ans1[i][0]) {
                     var cons = document.getElementById("questions");
                     var cons1 = document.createElement("div")
+                    cons1.setAttribute("class","myclass")
                     o[`obj${k}`] = ans1[i][1]
-                    cons1.innerHTML += `<div class="detail"> ${ans1[i][3]} Year|${ans1[i][4]}</div><h3>Query:${ans1[i][0]} </h3><p>q3</p><div class="answer-content" style="display: none;">`
+                    cons1.innerHTML += `<div class="detail"> ${ans1[i][3]} Year|${ans1[i][4]}</div><h3>Query:${ans1[i][0]} </h3><p>Database</p><div class="answer-content" style="display: none;">`
 
                     cons.appendChild(cons1)
 

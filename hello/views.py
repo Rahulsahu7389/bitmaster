@@ -1,18 +1,39 @@
 from django.shortcuts import render,HttpResponse,redirect
 from hello.models import LoggedIn,Questions,Templeate,Answer
 from json import dumps
+from django.core.mail import send_mail
+
+def index(request):
+    # send_mail(
+    # "Subject here",
+    # "Here is the message.",
+    # "masterbit165@gmail.com",
+    # ["jaysahu0201@gmail.com"],
+    # fail_silently=False,)
+    return render(request,'index123.html')
 
 MESSAGE_TAGS = {
     'lname':'ramam'
 }
+
+def button(request):
+    send_mail(
+    "Subject here",
+    "team : shourya\ntime:12:15pm\ndate:10/27/24\nlocation:amul parlour",
+    "masterbit165@gmail.com",
+    ["jaysahu0201@gmail.com"],
+    fail_silently=False)
+    print('got it')
+    return redirect('/sports')
+
 
 
 
 
 
 # Create your views here.
-def index(request):
-    return render(request, 'index123.html')
+# def index(request):
+#     return render(request, 'index123.html')
 
 def logged(request):
     global MESSAGE_TAGS

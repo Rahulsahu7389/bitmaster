@@ -14,7 +14,8 @@ urlpatterns = [
     path('query',views.query,name='query' ),
     path('event',views.event,name='event' ),
     path('form',views.formed,name='form' ),
-    path('answer',views.answered,name='answer' )
+    path('answer',views.answered,name='answer' ),
+    path('button',views.button,name='button' )
     
 
 ]
