@@ -19,6 +19,11 @@ class Templeate(models.Model): #used in getting the branch and year
     name = models.CharField(max_length=122)
     extra3 = models.CharField(max_length=122)
 
+class Answer(models.Model):
+    qustn = models.CharField(max_length=122)
+    qustnId = models.CharField(max_length=122)
+    extra4 = models.CharField(max_length=122)
+
 
 
 

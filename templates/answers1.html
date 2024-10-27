@@ -126,12 +126,17 @@
         .question-box .answer-submit:hover {
             background-color: #138496;
         }
-        form input{
+
+        form input {
             font-size: 1.5rem;
         }
-        #questions div{
+
+        #questions div {
             border: 2px solid red;
             margin: 10px auto;
+        }
+        #text1{
+            visibility: hidden;
         }
     </style>
 </head>
@@ -168,10 +173,8 @@
             </select>
             <button id="apply-filter">Apply Filter</button>
         </section>
-        <div id="questions">
-
-        </div>
-
+        <!--  -->
+        
         <section id="question-list">
             <h2>Questions to Answer</h2>
             <div id="filtered-questions">
@@ -179,7 +182,11 @@
             </div>
         </section>
     </main>
-    
+    <div id="questions">
+
+    </div>
+    <!-- <input type="text" name="text1" id="text1"> -->
+
 
 
     <footer>
@@ -189,7 +196,19 @@
     <script>
         var ans1 = JSON.parse("{{data|escapejs}}");
         console.log(ans1);
-        // Sample questions data (from previous page or database)
+        for (var i in ans1) {
+            console.log(ans1[i][0]);
+
+        }
+        
+
+
+        // var cons = document.getElementById("questions");
+        // var cons1 = document.createElement("div")
+        // cons1.innerHTML += `<div class="detail"> Year|</div><h3>Query: </h3><p>q3</p><button class="answer-btn">View Answer</button><div class="answer-content" style="display: none;">`
+
+        // cons.appendChild(cons1)
+        // Sample questions data(from previous page or database)
 
         const questions = [
             { topic: "Algorithms", subquery: "Neural Networks", question: "What is the difference between ANN and CNN?" },
@@ -204,31 +223,81 @@
             const selectedInterests = Array.from(interestSelect.selectedOptions).map(opt => opt.value);
             const filteredQuestionsDiv = document.getElementById("filtered-questions");
 
+            console.log('after this ');
+            console.log(interestSelect);
+            console.log(selectedInterests[0].toLowerCase());
+            console.log(filteredQuestionsDiv);
+
+            var o = {}
+            var k = 1
+            for (var i in ans1) {
+                // console.log(ans1[i][0]);
+                if (selectedInterests[0].toLowerCase() == ans1[i][0]) {
+                    var cons = document.getElementById("questions");
+                    var cons1 = document.createElement("div")
+                    o[`obj${k}`] = ans1[i][1]
+                    cons1.innerHTML += `<div class="detail"> ${ans1[i][3]} Year|${ans1[i][4]}</div><h3>Query:${ans1[i][0]} </h3><p>q3</p><div class="answer-content" style="display: none;">`
+
+                    cons.appendChild(cons1)
+
+                    var cons2 = document.createElement("div");
+                    cons2.setAttribute('class','innerdiv')
+                    cons2.innerHTML += `<form action="/answer" method="POST">
+        {% csrf_token %}
+
+        <input type="text" name="text" class=".textarea" placeholder="Give Your Answer">
+        <button class="answer-submit" type="submit">Submit</button>
+    </form>`        
+                    // console.log(ans1[i][1]);
+                    
+                    cons.appendChild(cons2)
+                    
+                }
+                k += 1
+            }
+            
+            
+            
+            console.log(o);
+            // var jk = 1
+            // while (jk <3){
+            //     document.getElementById(`idname${k}`).value = o[`obj${jk}`];
+            // }
+            
+
+
+
+
+
             filteredQuestionsDiv.innerHTML = ""; // Clear previous results
 
-            for (var i  in ans1) {
-                console.log(i);
-            
-                
-                // const element = ans1[i ];
-                // console.log(`this is ${i}`);
-                // console.log(`this is ${i[0]}`);
-                
-                // console.log(i[3],i[4],i[5],selectedInterests[0])
-                // if (i[0] == selectedInterests[0]){
-
-                //     var cons = document.getElementById("questions");
-                //     var cons1 = document.createElement("div")
-                //     cons1.innerHTML += `<div class="detail">${i[3]} Year|${i[4]}</div><h3>Query: ${i[0]}</h3><p>q3</p><button class="answer-btn">View Answer</button><div class="answer-content" style="display: none;">`
-        
-                //     cons.appendChild(cons1)
-                // }
+            // for (var i  in ans1) {
+            //     console.log(i);
 
 
-                    
-                
-            }
+            // const element = ans1[i ];
+            // console.log(`this is ${i}`);
+            // console.log(`this is ${i[0]}`);
 
+            // console.log(i[3],i[4],i[5],selectedInterests[0])
+            // if (i[0] == selectedInterests[0]){
+
+            // var cons = document.getElementById("questions");
+            // var cons1 = document.createElement("div")
+            // cons1.innerHTML += `<div class="detail">${i[3]} Year|${i[4]}</div><h3>Query: ${i[0]}</h3><p>q3</p><button class="answer-btn">View Answer</button><div class="answer-content" style="display: none;">`
+
+            // cons.appendChild(cons1)
+            // }
+
+
+
+
+            // }
+            // var cons = document.getElementById("questions");
+            // var cons1 = document.createElement("div")
+            // cons1.innerHTML += `<div class="detail"> Year|</div><h3>Query: </h3><p>q3</p><button class="answer-btn">View Answer</button><div class="answer-content" style="display: none;">`
+
+            // cons.appendChild(cons1)
 
             // Display questions that match selected interests
             questions
@@ -260,6 +329,8 @@
                     filteredQuestionsDiv.appendChild(questionBox);
                 });
         }
+        // let con = document.getElementsByClassName("idname");
+        // console.log(con[0]);
 
         // Apply filter button event
         document.getElementById("apply-filter").addEventListener("click", filterQuestions);

@@ -270,7 +270,7 @@
 
 
             answerDiv.innerHTML =
-                `<div class="detail">${ans['year']} Year|${ans['branch']}</div><h3>Query: ${ans['qns']}</h3><p>q3</p><button class="answer-btn">View Answer</button><div class="answer-content" style="display: none;"><p>Your answer will appear here soon...</p></div>`
+                `<div class="detail">${ans['year']} Year|${ans['branch']}</div><h3>Query: ${ans['qns']}</h3><p>q3</p><button class="answer-btn">View Answer</button><div class="answer-content" style="display: none;"><p class="innerp">Your answer will appear here soon...</p></div>`
 
 
             // Append the query and placeholder answer to the answer list
@@ -283,6 +283,32 @@
             });
 
         }
+        console.log(ans['AId'],ans['qnsId'])
+        if (ans['qnsId'] == '3') {
+            var doc = document.querySelector('.innerp')
+
+            // Create a new element to display the query and answer
+            // const answerDiv = document.createElement('div');
+            // answerDiv.classList.add('answer');
+
+
+
+
+            doc.innerHTML =
+                `<div class="detail">${ans['year']} Year|${ans['branch']}</div><h3>Query: ${ans['qns']}</h3><p>q3</p><div class="answer-content" style="display: none;"></div>`
+
+
+            // Append the query and placeholder answer to the answer list
+            // document.getElementById('answer-list').appendChild(answerDiv);
+
+            // Add click event to the "View Answer" button to toggle the answer content
+            // answerDiv.querySelector('.answer-btn').addEventListener('click', function () {
+            //     const answerContent = answerDiv.querySelector('.answer-content');
+            //     answerContent.style.display = answerContent.style.display === 'none' ? 'block' : 'none';
+            // });
+
+        }
+
 
         // Dynamically populate the subquery options based on the selected main query type
         document.getElementById('query-type').addEventListener('change', function () {

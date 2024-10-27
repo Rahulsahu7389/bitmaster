@@ -1,5 +1,5 @@
 from django.shortcuts import render,HttpResponse,redirect
-from hello.models import LoggedIn,Questions,Templeate
+from hello.models import LoggedIn,Questions,Templeate,Answer
 from json import dumps
 
 MESSAGE_TAGS = {
@@ -57,7 +57,7 @@ def query(request):
     qns = Questions.objects.all()
     for i in qns:
         context['qns'] = i.questn
-        context['qnsId'] = i.questnId
+        context['qnsId'] = '3'
         context['qname'] = i.qname
 
     temp = Templeate.objects.all()
@@ -65,7 +65,13 @@ def query(request):
         context['year'] = j.year 
         context['branch'] = j.branch
         context['tname'] = j.name
+
     datajson = dumps(context)
+
+    # ans = Answer.objects.all()
+    # for k in ans:
+    #     context['answer'] = k.qustn
+    #     context['AId'] = k.qustnId
     print(context)
     
     return render(request, 'query1.html',{'data':datajson})
@@ -83,6 +89,16 @@ def formed(request):
         return redirect('/query')
     return render(request,'form.html')
 def answered(request):
+    if request.method == 'POST':
+        ques = request.POST.get('text')
+        dat1 = Questions.objects.all()
+
+        ans = Answer(qustn = ques , qustnId = len(dat1), extra4 = 'none')
+        ans.save()
+        return render(request,'answers1.html')
+        # quesId = request.POST.get('')
+
+
     context2 = {}
     qns = Questions.objects.all()
     temp = Templeate.objects.all()
